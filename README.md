@@ -1,2 +1,95 @@
-# my_bio_page
-This is a my bio page
+# Bamaniya Dinesh — Full Stack Developer CV
+
+Personal CV website for **Bamaniya Dinesh**, a Full Stack Developer based in Ahmedabad, Gujarat, with 4+ years of experience building scalable web apps using Angular, Node.js, and microservices.
+
+## About
+
+Full-stack developer specializing in enterprise e-commerce platforms and fleet management systems. Currently working at **iFlair Web Technologies Pvt. Ltd** (since May 2021).
+
+**Highlights**
+- Architected 12+ microservices with 100+ REST APIs for multi-vendor e-commerce
+- Reduced image processing time by 70% with Bull Queue
+- Integrated payment gateways: Stripe, PayPal, Razorpay, Mollie, CCAvenue
+- Built COSMA — aircraft fleet management with real-time dashboards and RBAC
+- Led Angular (v16–20) apps with PWA and SSR
+
+## Tech Stack (Site)
+
+| Layer | Tools |
+| --- | --- |
+| Framework | Next.js 15, React 18, TypeScript |
+| Styling | Tailwind CSS |
+| PDF Export | html2canvas, jsPDF |
+
+## Features
+
+- Responsive dark/light CV layout
+- One-click **Download PDF** (`Bamaniya-Dinesh-CV.pdf`)
+- Sections: Objective, Skills, Work Experience, Projects, Education, Personal Details
+- Scroll animations and scroll-to-top
+- Live demo links for featured projects
+
+## Featured Projects
+
+| Project | Stack | Focus |
+| --- | --- | --- |
+| [SHIRTEE](https://site.shirtee.cloud/en) | Angular, Node.js, MongoDB, MySQL, Redis, Elasticsearch, AWS S3 | Multi-vendor e-commerce |
+| [MindBank AI](https://my.mindbank.ai/) | Node.js, PostgreSQL, OpenAI, ElevenLabs, Tavus, Stripe | AI digital twin platform |
+| COSMA | Angular 19, Node.js, TypeORM, MySQL, Kendo UI | Aircraft fleet management |
+| MissingLink's Middleware | Node.js, React, MySQL, Clio, Legalesign | Document signing middleware |
+| [Movie Tickets Booking](https://kinobox.si/) | Angular, Bootstrap | Ticket booking UX |
+| Credit Card Management | Angular, Bootstrap | Secure card management |
+
+## Skills
+
+- **Languages:** JavaScript, TypeScript  
+- **Frontend:** Angular, React.js, HTML, CSS, Bootstrap, Material UI, Tailwind CSS, Kendo UI  
+- **Backend:** Node.js, Express.js, Microservices  
+- **Database:** MySQL, PostgreSQL, MongoDB, AWS RDS, Elasticsearch  
+- **Tools:** Docker, AWS, GitLab, GitLab CI/CD, GitHub  
+
+## Education
+
+- **B.E. Computer Engineering** — Om Engineering College, Junagadh (CGPA 8.52, 2021)
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+### Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm start` | Run production server |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier format |
+
+## Project Structure
+
+```
+app/
+  page.tsx        # Main CV page
+  layout.tsx      # Root layout & metadata
+  globals.css     # Global / Tailwind styles
+public/           # Static assets (e.g. profile photo)
+```
+
+Edit `app/page.tsx` to update CV content.
+
+## Deploy
+
+Ready for [Vercel](https://vercel.com): connect the repo and deploy. Framework, build (`next build`), and output are auto-detected.
+
+## Contact
+
+- **Email:** [bamaniyadinesh204@gmail.com](mailto:bamaniyadinesh204@gmail.com)
+- **Phone:** [+91 7096398595](tel:7096398595)
+- **LinkedIn:** [dinesh-bamaniya-b9b84a204](https://www.linkedin.com/in/dinesh-bamaniya-b9b84a204)
+- **Location:** Ahmedabad, Gujarat, India
