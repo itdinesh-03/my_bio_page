@@ -3,103 +3,115 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fafaf9;
+  --card: #ffffff;
+  --line: #e7e5e4;
+  --fg: #1c1917;
+  --muted: #78716c;
+  --accent: #6366f1;
+  --accent2: #06b6d4;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root[data-theme="dark"] {
+  --bg: #0b0b10;
+  --card: #14141c;
+  --line: #24242f;
+  --fg: #f5f5f4;
+  --muted: #a1a1aa;
+  --accent: #818cf8;
+  --accent2: #22d3ee;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
 }
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.grad {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #fff;
 }
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+.btn-ghost {
+  border: 1px solid var(--line);
+  background: var(--card);
 }
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
-}
-
-/* Scroll animation classes */
-.scroll-animate {
+.reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(24px);
   transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
-
-.scroll-animate.animate {
+.reveal.in {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+.glow {
+  position: absolute;
+  inset: -20% 0 auto 0;
+  height: 420px;
+  background: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    transparent
+  );
+  pointer-events: none;
 }
 
-/* Disable animations for PDF generation */
-.no-animations * {
-  animation: none !important;
-  transition: none !important;
-}
-
-.no-animations .scroll-animate {
-  opacity: 1 !important;
-  transform: none !important;
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #fff;
+    --card: #fff;
+    --line: #ddd;
+    --fg: #111;
+    --muted: #555;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .glow {
+    display: none;
+  }
+  .card {
+    break-inside: avoid;
+  }
 }
