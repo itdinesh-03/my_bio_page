@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -9,17 +9,25 @@ const links = [
   { href: "/freelancer", label: "Freelancer" },
 ];
 
+function getThemeIsDark() {
+  return document.documentElement.dataset.theme !== "light";
+}
+
+function subscribeTheme(onStoreChange: () => void) {
+  const observer = new MutationObserver(onStoreChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+}
+
 export default function Navbar() {
   const path = usePathname();
-  const [dark, setDark] = useState(true);
-
-  useEffect(() => {
-    setDark(document.documentElement.dataset.theme !== "light");
-  }, []);
+  const dark = useSyncExternalStore(subscribeTheme, getThemeIsDark, () => true);
 
   const toggle = () => {
     const next = dark ? "light" : "dark";
-    setDark(!dark);
     document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
@@ -28,7 +36,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="no-print sticky top-0 z-30 border-b backdrop-blur"
+      className="no-print sticky top-0 z-30 border-b backdrop-blur-sm"
       style={{
         borderColor: "var(--line)",
         background: "color-mix(in srgb, var(--bg) 80%, transparent)",

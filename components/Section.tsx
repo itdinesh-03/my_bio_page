@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export default function Section({
   id,
   title,
@@ -7,7 +9,7 @@ export default function Section({
   id?: string;
   title: string;
   sub?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section id={id} className="reveal mx-auto max-w-5xl px-5 py-12">
