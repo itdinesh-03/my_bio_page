@@ -342,7 +342,7 @@ export default function Home() {
                                         Languages
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
-                                        {['JavaScript', 'TypeScript'].map((skill) => (
+                                        {['JavaScript', 'TypeScript', 'Python'].map((skill) => (
                                             <span
                                                 key={skill}
                                                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-teal-600 text-white rounded-full text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
@@ -387,10 +387,32 @@ export default function Home() {
                                         Backend
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
-                                        {['Node.js', 'Express.js', 'Microservices'].map((skill) => (
+                                        {['Node.js', 'Express.js', 'Python', 'FastAPI', 'Microservices'].map((skill) => (
                                             <span
                                                 key={skill}
                                                 className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* AI / Agents */}
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                                        AI / Agents
+                                    </h3>
+                                    <div className="flex flex-wrap gap-3">
+                                        {[
+                                            'AI Agents',
+                                            'LangChain',
+                                            'LangGraph',
+                                            'MCP',
+                                        ].map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="px-4 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white rounded-full text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200"
                                             >
                                                 {skill}
                                             </span>
@@ -556,10 +578,10 @@ export default function Home() {
                                     </div>
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm font-medium">
-                                            Node.js
+                                            Python
                                         </span>
                                         <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm font-medium">
-                                            Express.js
+                                            FastAPI
                                         </span>
                                         <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-md text-sm font-medium">
                                             PostgreSQL
@@ -579,7 +601,7 @@ export default function Home() {
                                     </div>
                                     <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1 text-sm mb-4">
                                         <li>
-                                            Developed a full-stack AI avatar creation platform using Node.js, Express, and PostgreSQL that enables users to create photorealistic digital twins with voice and video cloning capabilities
+                                            Migrated and developed a full-stack AI avatar creation platform in Python (FastAPI) with PostgreSQL that enables users to create photorealistic digital twins with voice and video cloning capabilities
                                         </li>
                                         <li>
                                             Integrated multiple AI APIs (ElevenLabs, Tavus, OpenAI) to build real-time conversation systems with a 3-layer knowledge architecture combining persona generation, learned knowledge, and document intelligence

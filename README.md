@@ -34,7 +34,7 @@ Full-stack developer specializing in enterprise e-commerce platforms and fleet m
 | Project | Stack | Focus |
 | --- | --- | --- |
 | [SHIRTEE](https://site.shirtee.cloud/en) | Angular, Node.js, MongoDB, MySQL, Redis, Elasticsearch, AWS S3 | Multi-vendor e-commerce |
-| [MindBank AI](https://my.mindbank.ai/) | Node.js, PostgreSQL, OpenAI, ElevenLabs, Tavus, Stripe | AI digital twin platform |
+| [MindBank AI](https://my.mindbank.ai/) | Python, FastAPI, PostgreSQL, OpenAI, ElevenLabs, Tavus, Stripe | AI digital twin platform |
 | COSMA | Angular 19, Node.js, TypeORM, MySQL, Kendo UI | Aircraft fleet management |
 | MissingLink's Middleware | Node.js, React, MySQL, Clio, Legalesign | Document signing middleware |
 | [Movie Tickets Booking](https://kinobox.si/) | Angular, Bootstrap | Ticket booking UX |
@@ -42,9 +42,10 @@ Full-stack developer specializing in enterprise e-commerce platforms and fleet m
 
 ## Skills
 
-- **Languages:** JavaScript, TypeScript  
+- **Languages:** JavaScript, TypeScript, Python  
 - **Frontend:** Angular, React.js, HTML, CSS, Bootstrap, Material UI, Tailwind CSS, Kendo UI  
-- **Backend:** Node.js, Express.js, Microservices  
+- **Backend:** Node.js, Express.js, Python, FastAPI, Microservices  
+- **AI / Agents:** AI Agents, LangChain, LangGraph, MCP  
 - **Database:** MySQL, PostgreSQL, MongoDB, AWS RDS, Elasticsearch  
 - **Tools:** Docker, AWS, GitLab, GitLab CI/CD, GitHub  
 
