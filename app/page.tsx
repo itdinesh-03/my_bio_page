@@ -272,12 +272,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 px-5 sm:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 px-5 sm:grid-cols-4 print:grid-cols-4">
           {[
             [`${years}+`, "Years experience"],
             ["12+", "Microservices"],
             ["100+", "REST APIs"],
-            ["-70%", "Image processing time"],
+            // ["-70%", "Image processing time"],
           ].map(([n, l]) => (
             <div key={l} className="card p-4 text-center">
               <div className="grad text-2xl font-extrabold">{n}</div>
@@ -290,7 +290,7 @@ export default function Home() {
       </header>
 
       <Section id="skills" title="Skills">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 print:grid-cols-2">
           {Object.entries(skills).map(([k, v]) => (
             <div key={k} className="card p-5">
               <h3
@@ -334,7 +334,7 @@ export default function Home() {
       </Section>
 
       <Section id="projects" title="Projects">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 print:grid-cols-2">
           {projects.map((p) => (
             <article
               key={p.name}
@@ -387,7 +387,7 @@ export default function Home() {
       </Section>
 
       <Section id="education" title="Education">
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-3 print:grid-cols-3">
           {education.map(([d, s, y]) => (
             <div key={d} className="card p-5">
               <h3 className="font-bold">{d}</h3>

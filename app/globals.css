@@ -92,26 +92,92 @@ body {
   pointer-events: none;
 }
 
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   :root,
   :root[data-theme="dark"] {
-    --bg: #fff;
-    --card: #fff;
-    --line: #ddd;
-    --fg: #111;
-    --muted: #555;
+    --bg: #ffffff;
+    --card: #ffffff;
+    --line: #d6d3d1;
+    --fg: #111111;
+    --muted: #4b5563;
+    --accent: #4f46e5;
+    --accent2: #0891b2;
   }
-  .no-print {
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 12px;
+  }
+  .no-print,
+  nav {
+    display: none !important;
+  }
+  .glow {
     display: none !important;
   }
   .reveal {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-  .glow {
-    display: none;
+
+  /* gradient text cannot print: use solid accent colour */
+  .grad {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: var(--accent) !important;
+    -webkit-text-fill-color: var(--accent) !important;
+  }
+  .btn-primary {
+    background: var(--accent) !important;
+    color: #fff !important;
+  }
+
+  /* tighter layout, no big gaps */
+  section.reveal {
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+  header > div:first-of-type {
+    padding-top: 0.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+  h1 {
+    font-size: 2.4rem !important;
+  }
+  h2 {
+    margin-bottom: 0.6rem !important;
+    break-after: avoid;
   }
   .card {
     break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    padding: 0.8rem 1rem !important;
+  }
+  .chip {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.5rem;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  section {
+    break-inside: auto;
+  }
+  main {
+    overflow: visible !important;
   }
 }
