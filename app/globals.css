@@ -181,3 +181,13 @@ body {
     overflow: visible !important;
   }
 }
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary {
+  color: var(--accent);
+}

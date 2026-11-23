@@ -16,25 +16,32 @@ Full-stack developer specializing in enterprise e-commerce platforms and fleet m
 
 ## Tech Stack (Site)
 
-| Layer      | Tools                            |
-| ---------- | -------------------------------- |
-| Framework  | Next.js 15, React 18, TypeScript |
-| Styling    | Tailwind CSS                     |
-| PDF Export | html2canvas, jsPDF               |
+| Layer     | Tools                            |
+| --------- | -------------------------------- |
+| Framework | Next.js 15, React 18, TypeScript |
+| Styling   | Tailwind CSS                     |
+| PDF       | Browser print from `/cv`         |
+
+## Pages
+
+- `/` — Home (intro + featured projects)
+- `/cv` — Full CV (print to PDF)
+- `/freelancer` — Services, process, FAQ, contact
+- Shared content in `lib/data.ts`
 
 ## Features
 
-- Responsive dark/light CV layout
-- One-click **Download PDF** (`Bamaniya-Dinesh-CV.pdf`)
-- Sections: Objective, Skills, Work Experience, Projects, Education, Personal Details
-- Scroll animations and scroll-to-top
-- Live demo links for featured projects
+- Responsive dark/light theme
+- Print-ready CV page
+- Shared project cards across Home, CV and Freelancer
+- Scroll reveal animations
+- Live demo links where available
 
 ## Featured Projects
 
 | Project                                      | Stack                                                          | Focus                       |
 | -------------------------------------------- | -------------------------------------------------------------- | --------------------------- |
-| [SHIRTEE](https://site.shirtee.cloud/en)     | Angular, Node.js, MongoDB, MySQL, Redis, Elasticsearch, AWS S3 | Multi-vendor e-commerce     |
+| E-Commerce                                   | Angular, Node.js, MongoDB, MySQL, Redis, Elasticsearch, AWS S3 | Multi-vendor e-commerce     |
 | [MindBank AI](https://my.mindbank.ai/)       | Python, FastAPI, PostgreSQL, OpenAI, ElevenLabs, Tavus, Stripe | AI digital twin platform    |
 | DocChat AI                                   | Angular, FastAPI, LangGraph, PostgreSQL, pgvector, Gemini      | Document Q&A / RAG          |
 | AskNova AI                                   | React, Node.js, LangChain, LangGraph, MCP, Gemini, MongoDB     | Tool-calling chat agent     |
@@ -80,13 +87,17 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```
 app/
-  page.tsx        # Main CV page
-  layout.tsx      # Root layout & metadata
-  globals.css     # Global / Tailwind styles
-public/           # Static assets (e.g. profile photo)
+  page.tsx              # Home
+  cv/page.tsx           # Full CV
+  freelancer/page.tsx   # Freelance services
+  layout.tsx            # Root layout, navbar, footer
+  globals.css           # Theme + print styles
+components/             # Navbar, Section, ProjectCard, RevealObserver
+lib/data.ts             # Skills, work, projects, education, contact
+public/                 # Static assets (e.g. profile photo)
 ```
 
-Edit `app/page.tsx` to update CV content.
+Edit `lib/data.ts` to update CV content.
 
 ## Deploy
 
