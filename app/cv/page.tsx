@@ -12,7 +12,7 @@ import {
   yearsOfExperience,
 } from "@/lib/data";
 
-export const metadata = { title: "CV — Dinesh Bamaniya" };
+export const metadata = { title: "Full Stack Developer - Dinesh Bamaniya" };
 
 export default function CV() {
   const years = yearsOfExperience();

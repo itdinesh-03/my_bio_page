@@ -92,7 +92,8 @@ body {
 
 @page {
   size: A4;
-  margin: 10mm;
+  /* zero margin hides browser date/time + URL headers/footers */
+  margin: 0;
 }
 
 @media print {
@@ -115,6 +116,8 @@ body {
     background: #fff !important;
     color: #111 !important;
     font-size: 12px;
+    /* content inset replaces @page margin so headers/footers stay gone */
+    padding: 5mm !important;
   }
   .no-print,
   nav {
