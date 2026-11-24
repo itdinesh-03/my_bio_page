@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import {
   EMAIL,
+  GITHUB,
   LINKEDIN,
   PHONE,
   education,
@@ -45,7 +46,26 @@ export default function CV() {
               <p className="break-all">✉️ {EMAIL}</p>
               <p>📞 {PHONE}</p>
               <p className="break-all">
-                🔗 {LINKEDIN.replace("https://www.", "")}
+                🔗{" "}
+                <a
+                  className="underline"
+                  href={LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {LINKEDIN.replace("https://www.", "")}
+                </a>
+              </p>
+              <p className="break-all">
+                🐙{" "}
+                <a
+                  className="underline"
+                  href={GITHUB}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/itdinesh-03
+                </a>
               </p>
             </div>
           </div>

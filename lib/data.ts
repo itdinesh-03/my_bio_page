@@ -1,6 +1,7 @@
 export const EMAIL = "bamaniyadinesh204@gmail.com";
 export const PHONE = "+91 7096398595";
 export const LINKEDIN = "https://www.linkedin.com/in/dinesh-bamaniya-b9b84a204";
+export const GITHUB = "https://github.com/itdinesh-03";
 
 export const skills: Record<string, string[]> = {
   Languages: ["JavaScript", "TypeScript", "Python"],

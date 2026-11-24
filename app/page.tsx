@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import {
   EMAIL,
+  GITHUB,
   LINKEDIN,
   PHONE_LINK,
   projects,
@@ -76,6 +77,14 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 LinkedIn ↗
+              </a>
+              <a
+                className="btn btn-ghost"
+                href={GITHUB}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
               </a>
             </div>
           </div>
@@ -151,6 +160,17 @@ export default function Home() {
               📞{" "}
               <a className="underline" href={PHONE_LINK}>
                 +91 7096398595
+              </a>
+            </p>
+            <p className="break-all">
+              🐙{" "}
+              <a
+                className="underline"
+                href={GITHUB}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/itdinesh-03
               </a>
             </p>
           </div>
