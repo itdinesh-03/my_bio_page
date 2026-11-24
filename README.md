@@ -99,9 +99,34 @@ public/                 # Static assets (e.g. profile photo)
 
 Edit `lib/data.ts` to update CV content.
 
-## Deploy
+## Deploy (CI/CD → Vercel)
 
-Ready for [Vercel](https://vercel.com): connect the repo and deploy. Framework, build (`next build`), and output are auto-detected.
+Push to `main` deploys **production** via GitHub Actions. Other branches / PRs get a **preview** deploy.
+
+### One-time setup
+
+1. Create / link the Vercel project:
+   ```bash
+   npx vercel login
+   npx vercel link
+   ```
+2. Copy IDs from `.vercel/project.json` (`orgId`, `projectId`).
+3. Create a [Vercel token](https://vercel.com/account/tokens).
+4. Add GitHub repo secrets (`Settings → Secrets and variables → Actions`):
+   | Secret | Value |
+   | ------ | ----- |
+   | `VERCEL_TOKEN` | token from step 3 |
+   | `VERCEL_ORG_ID` | `orgId` from `.vercel/project.json` |
+   | `VERCEL_PROJECT_ID` | `projectId` from `.vercel/project.json` |
+
+`vercel.json` disables Vercel’s built-in Git deploys so only Actions deploy (no double builds).
+
+### Workflows
+
+| File | Trigger | Target |
+| ---- | ------- | ------ |
+| `.github/workflows/deploy-production.yml` | push to `main` | production |
+| `.github/workflows/deploy-preview.yml` | other branches / PRs | preview |
 
 ## Contact
 

@@ -42,13 +42,13 @@ export default function Navbar() {
         background: "color-mix(in srgb, var(--bg) 80%, transparent)",
       }}
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-5 py-3 text-sm">
-        <Link href="/" className="font-bold">
+      <div className="mx-auto flex max-w-5xl items-center gap-2 px-3 py-2.5 text-sm sm:gap-3 sm:px-5 sm:py-3">
+        <Link href="/" className="shrink-0 font-bold">
           DB<span className="grad">.</span>
         </Link>
 
         <div
-          className="flex items-center gap-1 rounded-full border p-1"
+          className="mx-auto flex min-w-0 max-w-full items-center gap-0.5 overflow-x-auto rounded-full border p-0.5 sm:gap-1 sm:p-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           style={{ borderColor: "var(--line)" }}
         >
           {links.map((l) => {
@@ -59,7 +59,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 aria-current={active ? "page" : undefined}
-                className="rounded-full px-4 py-1.5 font-medium transition"
+                className="shrink-0 rounded-full px-2.5 py-1.5 text-xs font-medium transition sm:px-4 sm:text-sm"
                 style={
                   active
                     ? { background: "var(--accent)", color: "#fff" }
@@ -72,10 +72,10 @@ export default function Navbar() {
           })}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <button
             onClick={toggle}
-            className="btn btn-ghost !py-1.5"
+            className="btn btn-ghost !px-2 !py-1.5 sm:!px-3"
             aria-label="Toggle theme"
           >
             {dark ? "☀️" : "🌙"}
@@ -83,14 +83,14 @@ export default function Navbar() {
           {path.startsWith("/cv") ? (
             <button
               onClick={() => window.print()}
-              className="btn btn-primary !py-1.5"
+              className="btn btn-primary !px-2.5 !py-1.5 text-xs sm:!px-3 sm:text-sm"
             >
               PDF
             </button>
           ) : (
             <Link
               href="/freelancer#contact"
-              className="btn btn-primary !py-1.5"
+              className="btn btn-primary !hidden !px-2.5 !py-1.5 text-xs sm:!inline-flex sm:!px-3 sm:text-sm"
             >
               Hire me
             </Link>

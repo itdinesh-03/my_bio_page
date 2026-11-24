@@ -94,23 +94,23 @@ const faq = [
 export default function Freelancer() {
   const years = yearsOfExperience();
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative">
       <header className="relative">
         <div className="glow" />
-        <div className="relative mx-auto max-w-5xl px-5 pb-8 pt-16 text-center">
+        <div className="relative mx-auto max-w-5xl px-4 pb-8 pt-10 text-center sm:px-5 sm:pt-16">
           <span className="chip">🟢 Open to freelance projects</span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
+          <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-6xl">
             Hire a <span className="grad">full stack &amp; AI</span> developer
           </h1>
           <p
-            className="mx-auto mt-4 max-w-2xl"
+            className="mx-auto mt-4 max-w-2xl text-sm sm:text-base"
             style={{ color: "var(--muted)" }}
           >
             {years}+ years shipping production web apps, from multi-vendor
             e-commerce to AI agents. I turn your idea into a reliable,
             maintainable product.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
             <a className="btn btn-primary" href={mail("Project enquiry")}>
               ✉️ Start a project
             </a>
@@ -158,7 +158,7 @@ export default function Freelancer() {
       </Section>
 
       <Section title="How we work">
-        <div className="grid gap-4 sm:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {process.map(([n, t, d]) => (
             <div key={n} className="card p-5">
               <div className="grad text-3xl font-extrabold">{n}</div>
@@ -175,7 +175,7 @@ export default function Freelancer() {
         title="Ways to engage"
         sub="Pricing depends on scope. Send details for a tailored quote."
       >
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           {models.map(([t, d]) => (
             <div key={t} className="card p-5">
               <h3 className="font-bold">{t}</h3>
@@ -212,9 +212,9 @@ export default function Freelancer() {
       </Section>
 
       <Section id="contact" title="Let’s talk">
-        <div className="card flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-1 text-sm">
-            <p>
+        <div className="card flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+          <div className="min-w-0 space-y-1 text-sm">
+            <p className="break-all">
               ✉️{" "}
               <a className="underline" href={mail("Project enquiry")}>
                 {EMAIL}
@@ -228,7 +228,10 @@ export default function Freelancer() {
             </p>
             <p>💬 Usually replies within a day</p>
           </div>
-          <a className="btn btn-primary" href={mail("Project enquiry")}>
+          <a
+            className="btn btn-primary w-full justify-center sm:w-auto"
+            href={mail("Project enquiry")}
+          >
             Send enquiry →
           </a>
         </div>

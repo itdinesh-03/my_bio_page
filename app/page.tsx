@@ -31,35 +31,38 @@ const focus = [
 export default function Home() {
   const years = yearsOfExperience();
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative">
       <header className="relative">
         <div className="glow" />
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-8 px-5 pb-10 pt-16 text-center sm:flex-row sm:text-left">
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-8 pt-10 text-center sm:gap-8 sm:px-5 sm:pb-10 sm:pt-16 sm:flex-row sm:text-left">
           <Image
             src="/profile-photo.png"
             alt="Dinesh Bamaniya"
             width={150}
             height={150}
             priority
-            className="h-36 w-36 rounded-full object-cover ring-4"
+            className="h-28 w-28 shrink-0 rounded-full object-cover ring-4 sm:h-36 sm:w-36"
             style={{ ["--tw-ring-color" as string]: "var(--accent)" }}
           />
-          <div>
+          <div className="min-w-0 w-full">
             <p className="mb-2 text-sm" style={{ color: "var(--muted)" }}>
               👋 Hi, I’m
             </p>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-6xl">
               Dinesh <span className="grad">Bamaniya</span>
             </h1>
-            <p className="mt-2 text-xl font-medium">
+            <p className="mt-2 text-lg font-medium sm:text-xl">
               Full Stack &amp; AI Developer
             </p>
-            <p className="mt-4 max-w-xl" style={{ color: "var(--muted)" }}>
+            <p
+              className="mt-4 max-w-xl text-sm sm:text-base"
+              style={{ color: "var(--muted)" }}
+            >
               {years}+ years building scalable web apps with Angular, Node.js,
               Python and microservices, now shipping AI agents and RAG products
               too.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 sm:justify-start">
+            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 sm:justify-start">
               <Link className="btn btn-primary" href="/freelancer#contact">
                 Hire me
               </Link>
@@ -77,7 +80,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 px-5 sm:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-2 px-4 sm:gap-3 sm:px-5 sm:grid-cols-4">
           {[
             [`${years}+`, "Years experience"],
             ["12+", "Microservices"],
@@ -127,7 +130,7 @@ export default function Home() {
       </Section>
 
       <Section title="Let’s build something">
-        <div className="card grid gap-4 p-6 sm:grid-cols-2">
+        <div className="card grid gap-4 p-4 sm:grid-cols-2 sm:p-6">
           <div>
             <h3 className="font-bold">Need a developer for your project?</h3>
             <p className="mt-1 text-sm" style={{ color: "var(--muted)" }}>
@@ -138,7 +141,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="space-y-1 text-sm sm:text-right">
-            <p>
+            <p className="break-all">
               ✉️{" "}
               <a className="underline" href={`mailto:${EMAIL}`}>
                 {EMAIL}

@@ -17,30 +17,37 @@ export const metadata = { title: "Full Stack Developer - Dinesh Bamaniya" };
 export default function CV() {
   const years = yearsOfExperience();
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="relative">
       <header className="relative">
         <div className="glow" />
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-5 pb-6 pt-12 text-center sm:flex-row sm:text-left print:flex-row print:text-left">
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:text-left">
           <Image
             src="/profile-photo.png"
             alt="Dinesh Bamaniya"
             width={112}
             height={112}
             priority
-            className="h-28 w-28 rounded-full object-cover ring-4"
+            className="h-24 w-24 shrink-0 rounded-full object-cover ring-4 sm:h-28 sm:w-28"
             style={{ ["--tw-ring-color" as string]: "var(--accent)" }}
           />
-          <div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <div className="min-w-0 w-full">
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
               Dinesh <span className="grad">Bamaniya</span>
             </h1>
-            <p className="mt-1 text-lg font-medium">Full Stack Developer</p>
-            <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
-              📍 Ahmedabad, India · ✉️ {EMAIL} · 📞 {PHONE}
+            <p className="mt-1 text-base font-medium sm:text-lg">
+              Full Stack Developer
             </p>
-            <p className="mt-1 text-sm" style={{ color: "var(--muted)" }}>
-              🔗 {LINKEDIN.replace("https://www.", "")}
-            </p>
+            <div
+              className="mt-3 flex flex-col items-center gap-1 text-sm sm:items-start"
+              style={{ color: "var(--muted)" }}
+            >
+              <p>📍 Ahmedabad, India</p>
+              <p className="break-all">✉️ {EMAIL}</p>
+              <p>📞 {PHONE}</p>
+              <p className="break-all">
+                🔗 {LINKEDIN.replace("https://www.", "")}
+              </p>
+            </div>
           </div>
         </div>
       </header>
@@ -80,17 +87,17 @@ export default function CV() {
 
       <Section title="Experience">
         <div
-          className="card p-6"
+          className="card p-4 sm:p-6"
           style={{ borderLeft: "4px solid var(--accent)" }}
         >
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <div>
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
+            <div className="min-w-0">
               <h3 className="text-lg font-bold">Full Stack Developer</h3>
               <p style={{ color: "var(--muted)" }}>
                 iFlair Web Technologies Pvt. Ltd
               </p>
             </div>
-            <span className="chip">May 2021 – Present</span>
+            <span className="chip w-fit">May 2021 – Present</span>
           </div>
           <ul className="mt-4 list-disc space-y-2 pl-5">
             {work.map((w) => (
@@ -109,7 +116,7 @@ export default function CV() {
       </Section>
 
       <Section title="Education">
-        <div className="grid gap-4 sm:grid-cols-3 print:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 print:grid-cols-3">
           {education.map(([d, s, y]) => (
             <div key={d} className="card p-5">
               <h3 className="font-bold">{d}</h3>

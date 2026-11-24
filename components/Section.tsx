@@ -12,8 +12,11 @@ export default function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="reveal mx-auto max-w-5xl px-5 py-12">
-      <h2 className="text-2xl font-bold tracking-tight">
+    <section
+      id={id}
+      className="reveal mx-auto max-w-5xl px-4 py-8 sm:px-5 sm:py-12"
+    >
+      <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
         <span className="grad">{title}</span>
       </h2>
       {sub && (

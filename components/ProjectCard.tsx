@@ -2,14 +2,16 @@ import type { Project } from "@/lib/data";
 
 export default function ProjectCard({ p }: { p: Project }) {
   return (
-    <article className="card flex flex-col p-5 transition hover:-translate-y-1">
+    <article className="card flex min-w-0 flex-col p-4 transition hover:-translate-y-1 sm:p-5">
       <p
         className="text-xs font-semibold uppercase tracking-wider"
         style={{ color: "var(--accent)" }}
       >
         {p.tag}
       </p>
-      <h3 className="mt-1 text-lg font-bold">{p.name}</h3>
+      <h3 className="mt-1 break-words text-base font-bold sm:text-lg">
+        {p.name}
+      </h3>
       <ul
         className="mt-3 list-disc space-y-1 pl-5 text-sm"
         style={{ color: "var(--muted)" }}

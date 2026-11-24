@@ -32,6 +32,12 @@ body {
     "Segoe UI",
     sans-serif;
 }
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
 .card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -53,11 +59,19 @@ body {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  padding: 0.6rem 1.1rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 0.75rem;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+  }
 }
 .btn-primary {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -67,20 +81,30 @@ body {
   border: 1px solid var(--line);
   background: var(--card);
 }
+/* Visible by default so first paint / no-JS never shows a blank page.
+   Hide only after JS marks reveal-ready, then fade in with .in */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+html[data-reveal="ready"] .reveal:not(.in) {
   opacity: 0;
   transform: translateY(24px);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
 }
+html[data-reveal="ready"] .reveal.in,
 .reveal.in {
   opacity: 1;
   transform: none;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 .glow {
   position: absolute;
-  inset: -20% 0 auto 0;
+  inset: 0 0 auto 0;
   height: 420px;
   background: radial-gradient(
     60% 60% at 50% 0%,
@@ -88,6 +112,7 @@ body {
     transparent
   );
   pointer-events: none;
+  overflow: hidden;
 }
 
 @page {
