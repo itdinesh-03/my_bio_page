@@ -6,7 +6,7 @@ import { useSyncExternalStore } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/cv", label: "CV" },
-  { href: "/freelancer", label: "Freelancer" },
+  // { href: "/freelancer", label: "Freelancer" },
 ];
 
 function getThemeIsDark() {

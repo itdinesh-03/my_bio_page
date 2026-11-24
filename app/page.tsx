@@ -140,15 +140,15 @@ export default function Home() {
 
       <Section title="Let’s build something">
         <div className="card grid gap-4 p-4 sm:grid-cols-2 sm:p-6">
-          <div>
+          {/* <div>
             <h3 className="font-bold">Need a developer for your project?</h3>
             <p className="mt-1 text-sm" style={{ color: "var(--muted)" }}>
               See the services I offer and how we can work together.
             </p>
-            <Link href="/freelancer" className="btn btn-primary mt-4">
+             <Link href="/freelancer" className="btn btn-primary mt-4">
               Freelance services →
             </Link>
-          </div>
+          </div> */}
           <div className="space-y-1 text-sm sm:text-right">
             <p className="break-all">
               ✉️{" "}
