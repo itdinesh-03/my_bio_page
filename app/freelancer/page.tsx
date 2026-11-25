@@ -9,8 +9,14 @@ import {
   projects,
   yearsOfExperience,
 } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Freelance — Dinesh Bamaniya" };
+export const metadata = pageMetadata({
+  title: "Freelance Services",
+  description:
+    "Hire Dinesh Bamaniya for full-stack web apps, AI agents & RAG, e-commerce, payments, APIs and microservices. Based in Ahmedabad, India.",
+  path: "/freelancer",
+});
 
 const mail = (subject: string) =>
   `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;

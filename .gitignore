@@ -60,4 +60,5 @@ next-env.d.ts
 .AppleDouble
 .LSOverride
 .env*
+!.env.example
 .vercel

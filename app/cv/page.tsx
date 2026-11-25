@@ -12,8 +12,14 @@ import {
   work,
   yearsOfExperience,
 } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Full Stack Developer - Dinesh Bamaniya" };
+export const metadata = pageMetadata({
+  title: "CV & Experience",
+  description:
+    "Curriculum vitae of Dinesh Bamaniya — Full Stack Developer. Skills, work experience, education, and projects (Angular, Node.js, Python, AI).",
+  path: "/cv",
+});
 
 export default function CV() {
   const years = yearsOfExperience();

@@ -10,6 +10,18 @@ import {
   projects,
   yearsOfExperience,
 } from "@/lib/data";
+import type { Metadata } from "next";
+import { pageMetadata, SITE_DESCRIPTION, SITE_TITLE_DEFAULT } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: SITE_TITLE_DEFAULT,
+    description: SITE_DESCRIPTION,
+    path: "/",
+  }),
+  // Bypass root title template so the home title is not duplicated.
+  title: { absolute: SITE_TITLE_DEFAULT },
+};
 
 const focus = [
   [
