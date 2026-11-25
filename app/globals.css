@@ -21,16 +21,66 @@
 html {
   scroll-behavior: smooth;
 }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html[data-reveal="ready"] .reveal:not(.in),
+  html[data-reveal="ready"] .reveal.in,
+  .reveal.in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 body {
   background: var(--bg);
   color: var(--fg);
   font-family:
-    Inter,
+    var(--font-sans),
     ui-sans-serif,
     system-ui,
     -apple-system,
     "Segoe UI",
     sans-serif;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+}
+.field::placeholder {
+  color: var(--muted);
+}
+.field:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
 }
 img,
 svg,

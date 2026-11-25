@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
@@ -6,6 +7,8 @@ import { useSyncExternalStore } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/cv", label: "CV" },
+  { href: "/projects", label: "Projects" },
+  // Freelancer page kept inactive / not linked in nav
   // { href: "/freelancer", label: "Freelancer" },
 ];
 
@@ -43,8 +46,22 @@ export default function Navbar() {
       }}
     >
       <div className="mx-auto flex max-w-5xl items-center gap-2 px-3 py-2.5 text-sm sm:gap-3 sm:px-5 sm:py-3">
-        <Link href="/" className="shrink-0 font-bold">
-          DB<span className="grad">.</span>
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2 font-bold"
+          aria-label="Dinesh Bamaniya home"
+        >
+          <Image
+            src="/icon-192.png"
+            alt=""
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded-md"
+            priority
+          />
+          <span className="hidden sm:inline">
+            DB<span className="grad">.</span>
+          </span>
         </Link>
 
         <div
@@ -74,14 +91,16 @@ export default function Navbar() {
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <button
+            type="button"
             onClick={toggle}
             className="btn btn-ghost !px-2 !py-1.5 sm:!px-3"
-            aria-label="Toggle theme"
+            aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
           >
-            {dark ? "☀️" : "🌙"}
+            {dark ? "Light" : "Dark"}
           </button>
           {path.startsWith("/cv") ? (
             <button
+              type="button"
               onClick={() => window.print()}
               className="btn btn-primary !px-2.5 !py-1.5 text-xs sm:!px-3 sm:text-sm"
             >
@@ -89,7 +108,7 @@ export default function Navbar() {
             </button>
           ) : (
             <Link
-              href="/freelancer#contact"
+              href="/#contact"
               className="btn btn-primary !hidden !px-2.5 !py-1.5 text-xs sm:!inline-flex sm:!px-3 sm:text-sm"
             >
               Hire me

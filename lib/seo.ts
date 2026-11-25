@@ -37,7 +37,12 @@ export const SITE_KEYWORDS = [
   "Freelance Developer",
 ];
 
-export const OG_IMAGE = "/profile-photo.png";
+/** Square avatar used in UI (512×512). */
+export const PROFILE_IMAGE = "/profile-photo-web.png";
+/** Full logo wordmark (landscape). */
+export const LOGO_IMAGE = "/itdinesh-logo.png";
+/** Open Graph / Twitter share image (1200×630). */
+export const OG_IMAGE = "/og-image.png";
 
 export function pageMetadata({
   title,
@@ -61,7 +66,14 @@ export function pageMetadata({
       description,
       url,
       type: "website",
-      images: [{ url: OG_IMAGE, alt: SITE_NAME }],
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: SITE_NAME,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -69,9 +81,7 @@ export function pageMetadata({
       description,
       images: [OG_IMAGE],
     },
-    ...(noIndex
-      ? { robots: { index: false, follow: false } }
-      : {}),
+    ...(noIndex ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -94,7 +104,7 @@ export function personJsonLd(siteUrl: string) {
         "@id": `${siteUrl}/#person`,
         name: SITE_NAME,
         url: siteUrl,
-        image: `${siteUrl}${OG_IMAGE}`,
+        image: `${siteUrl}${PROFILE_IMAGE}`,
         email: EMAIL,
         jobTitle: "Full Stack & AI Developer",
         address: {

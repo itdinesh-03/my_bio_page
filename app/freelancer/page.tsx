@@ -16,6 +16,8 @@ export const metadata = pageMetadata({
   description:
     "Hire Dinesh Bamaniya for full-stack web apps, AI agents & RAG, e-commerce, payments, APIs and microservices. Based in Ahmedabad, India.",
   path: "/freelancer",
+  // Page kept inactive (not in nav/sitemap); retained for direct links only.
+  noIndex: true,
 });
 
 const mail = (subject: string) =>
@@ -208,7 +210,7 @@ export default function Freelancer() {
       >
         <div className="grid gap-4 md:grid-cols-2">
           {[projects[0], projects[2], projects[3], projects[4]].map((p) => (
-            <ProjectCard key={p.name} p={p} />
+            <ProjectCard key={p.slug} p={p} />
           ))}
         </div>
       </Section>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import {
@@ -12,7 +13,7 @@ import {
   work,
   yearsOfExperience,
 } from "@/lib/data";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, PROFILE_IMAGE } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "CV & Experience",
@@ -29,7 +30,7 @@ export default function CV() {
         <div className="glow" />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:text-left">
           <Image
-            src="/profile-photo.png"
+            src={PROFILE_IMAGE}
             alt="Dinesh Bamaniya"
             width={112}
             height={112}
@@ -136,9 +137,16 @@ export default function CV() {
       <Section id="projects" title="Projects">
         <div className="grid gap-4 md:grid-cols-2 print:grid-cols-2">
           {projects.map((p) => (
-            <ProjectCard key={p.name} p={p} />
+            <ProjectCard key={p.slug} p={p} />
           ))}
         </div>
+        <Link
+          href="/projects"
+          className="no-print mt-5 inline-block text-sm font-semibold"
+          style={{ color: "var(--accent)" }}
+        >
+          Browse project case studies →
+        </Link>
       </Section>
 
       <Section title="Education">

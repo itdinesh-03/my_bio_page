@@ -18,22 +18,27 @@ Full-stack developer specializing in enterprise e-commerce platforms and fleet m
 
 | Layer     | Tools                            |
 | --------- | -------------------------------- |
-| Framework | Next.js 15, React 18, TypeScript |
-| Styling   | Tailwind CSS                     |
+| Framework | Next.js 16, React 19, TypeScript |
+| Styling   | Tailwind CSS 4                   |
 | PDF       | Browser print from `/cv`         |
 
 ## Pages
 
-- `/` — Home (intro + featured projects)
+- `/` — Home (intro, featured projects, contact form)
 - `/cv` — Full CV (print to PDF)
-- `/freelancer` — Services, process, FAQ, contact
+- `/projects` — Project index + case studies (`/projects/[slug]`)
+- `/freelancer` — Inactive (noindex, not in nav/sitemap)
 - Shared content in `lib/data.ts`
 
 ## Features
 
 - Responsive dark/light theme
 - Print-ready CV page
-- Shared project cards across Home, CV and Freelancer
+- Project case studies with SEO metadata
+- Contact form (`/api/contact`, Resend optional / mailto fallback)
+- Favicon + OG assets from `itdinesh-logo` / profile photo
+- Vercel Analytics + Speed Insights
+- Security headers (CSP, HSTS, etc.)
 - Scroll reveal animations
 - Live demo links where available
 

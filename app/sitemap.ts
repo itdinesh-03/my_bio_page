@@ -1,9 +1,17 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/lib/data";
 import { getSiteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const lastModified = new Date();
+
+  const projectEntries: MetadataRoute.Sitemap = projects.map((p) => ({
+    url: `${siteUrl}/projects/${p.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -19,10 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/freelancer`,
+      url: `${siteUrl}/projects`,
       lastModified,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
+    ...projectEntries,
+    // /freelancer intentionally omitted — page kept inactive / noindex
   ];
 }
