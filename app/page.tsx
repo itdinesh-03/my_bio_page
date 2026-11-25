@@ -109,7 +109,7 @@ export default function Home() {
             [`${years}+`, "Years experience"],
             ["12+", "Microservices"],
             ["100+", "REST APIs"],
-            [`${projects.length}`, "Projects"],
+            ['10+', "Projects"],
           ].map(([n, l]) => (
             <div key={l} className="card p-4 text-center">
               <div className="grad text-2xl font-extrabold">{n}</div>
