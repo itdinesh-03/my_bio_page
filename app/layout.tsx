@@ -18,6 +18,7 @@ import {
   SITE_NAME,
   SITE_TITLE_DEFAULT,
 } from "@/lib/seo";
+import Link from "next/link";
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -154,12 +155,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             >
               GitHub
             </a>
-            <a href="/cv" style={{ color: "var(--accent)" }}>
-              CV
-            </a>
-            <a href="/projects" style={{ color: "var(--accent)" }}>
-              Projects
-            </a>
+            <Link href="/cv" style={{ color: "var(--accent)" }}>
+              Curriculum vitae
+            </Link>
+            <Link href="/projects" style={{ color: "var(--accent)" }}>
+              Portfolio projects
+            </Link>
           </nav>
         </footer>
         <Analytics />

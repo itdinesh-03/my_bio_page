@@ -35,7 +35,7 @@ export default function ProjectCard({ p }: { p: Project }) {
       </div>
       <div className="no-print mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
         <Link href={`/projects/${p.slug}`} style={{ color: "var(--accent)" }}>
-          Case study →
+          {p.name} case study →
         </Link>
         {p.url && (
           <a

@@ -28,10 +28,10 @@ export default function NotFound() {
           Home
         </Link>
         <Link className="btn btn-ghost" href="/cv">
-          CV
+          Open résumé
         </Link>
         <Link className="btn btn-ghost" href="/projects">
-          Projects
+          View portfolio
         </Link>
       </div>
     </main>

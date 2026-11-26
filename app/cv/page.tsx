@@ -148,7 +148,7 @@ export default function CV() {
           className="no-print mt-5 inline-block text-sm font-semibold"
           style={{ color: "var(--accent)" }}
         >
-          Browse project case studies →
+          See every project case study →
         </Link>
       </Section>
 
