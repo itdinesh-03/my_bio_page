@@ -64,6 +64,7 @@ export default function Home() {
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-8 pt-10 text-center sm:gap-8 sm:px-5 sm:pb-10 sm:pt-16 sm:flex-row sm:text-left">
           <Image
             src={PROFILE_IMAGE}
+            loading="lazy"
             alt="Dinesh Bamaniya, Full Stack and AI Developer"
             width={288}
             height={288}
