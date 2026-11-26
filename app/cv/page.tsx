@@ -8,12 +8,12 @@ import {
   LINKEDIN,
   PHONE,
   education,
-  projects,
+  getCvProjects,
   skills,
   work,
   yearsOfExperience,
 } from "@/lib/data";
-import { pageMetadata, PROFILE_IMAGE } from "@/lib/seo";
+import { getSiteUrl, pageMetadata, PROFILE_IMAGE } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "CV & Experience",
@@ -24,6 +24,9 @@ export const metadata = pageMetadata({
 
 export default function CV() {
   const years = yearsOfExperience();
+  const siteUrl = getSiteUrl();
+  const siteHost = siteUrl.replace(/^https?:\/\//, "");
+  const cvProjects = getCvProjects();
   return (
     <main className="relative">
       <header className="relative">
@@ -55,6 +58,17 @@ export default function CV() {
               <p>📍 Ahmedabad, India</p>
               <p className="break-all">✉️ {EMAIL}</p>
               <p>📞 {PHONE}</p>
+              <p className="break-all">
+                🌐{" "}
+                <a
+                  className="underline"
+                  href={siteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {siteHost}
+                </a>
+              </p>
               <p className="break-all">
                 🔗{" "}
                 <a
@@ -137,9 +151,13 @@ export default function CV() {
         </div>
       </Section>
 
-      <Section id="projects" title="Projects">
+      <Section id="projects" title="Selected projects">
+        <p className="mb-4 text-sm" style={{ color: "var(--muted)" }}>
+          Three highlights spanning Angular, React, Node.js, Python/FastAPI, and
+          AI agents — more case studies at {siteHost}/projects
+        </p>
         <div className="grid gap-4 md:grid-cols-2 print:grid-cols-2">
-          {projects.map((p) => (
+          {cvProjects.map((p) => (
             <ProjectCard key={p.slug} p={p} />
           ))}
         </div>

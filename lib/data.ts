@@ -226,6 +226,19 @@ export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
+/** Best CV / PDF picks — together cover Angular, React, Node, Python, AI, and DBs. */
+export const cvProjectSlugs = [
+  "ecommerce",
+  "mindbank-ai",
+  "asknova-ai",
+] as const;
+
+export function getCvProjects(): Project[] {
+  return cvProjectSlugs
+    .map((slug) => getProject(slug))
+    .filter((p): p is Project => Boolean(p));
+}
+
 export const education = [
   [
     "B.E. Computer Engineering",

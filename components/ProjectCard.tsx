@@ -33,8 +33,12 @@ export default function ProjectCard({ p }: { p: Project }) {
           </span>
         ))}
       </div>
-      <div className="no-print mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
-        <Link href={`/projects/${p.slug}`} style={{ color: "var(--accent)" }}>
+      <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold">
+        <Link
+          href={`/projects/${p.slug}`}
+          className="no-print"
+          style={{ color: "var(--accent)" }}
+        >
           {p.name} case study →
         </Link>
         {p.url && (
@@ -44,7 +48,8 @@ export default function ProjectCard({ p }: { p: Project }) {
             rel="noopener noreferrer"
             style={{ color: "var(--accent)" }}
           >
-            Live demo ↗
+            <span className="no-print">Live demo ↗</span>
+            <span className="hidden print:inline">{p.url.replace(/^https?:\/\//, "")}</span>
           </a>
         )}
       </div>
