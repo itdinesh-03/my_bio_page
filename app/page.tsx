@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
-import ContactForm from "@/components/ContactForm";
 import {
   EMAIL,
   GITHUB,
@@ -18,6 +18,15 @@ import {
   SITE_DESCRIPTION,
   SITE_TITLE_DEFAULT,
 } from "@/lib/seo";
+
+// Below-fold client form — keep out of initial JS for better TBT / unused JS
+const ContactForm = dynamic(() => import("@/components/ContactForm"), {
+  loading: () => (
+    <p className="text-sm" style={{ color: "var(--muted)" }}>
+      Loading contact form…
+    </p>
+  ),
+});
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -53,10 +62,14 @@ export default function Home() {
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-8 pt-10 text-center sm:gap-8 sm:px-5 sm:pb-10 sm:pt-16 sm:flex-row sm:text-left">
           <Image
             src={PROFILE_IMAGE}
-            alt="Dinesh Bamaniya"
-            width={150}
-            height={150}
-            priority
+            alt="Dinesh Bamaniya, Full Stack and AI Developer"
+            width={288}
+            height={288}
+            sizes="(max-width: 640px) 112px, 144px"
+            // Already a tiny WebP at display size — skip optimizer cold-start latency (LCP)
+            unoptimized
+            preload
+            fetchPriority="high"
             className="h-28 w-28 shrink-0 rounded-full object-cover ring-4 sm:h-36 sm:w-36"
             style={{ ["--tw-ring-color" as string]: "var(--accent)" }}
           />
@@ -109,7 +122,7 @@ export default function Home() {
             [`${years}+`, "Years experience"],
             ["12+", "Microservices"],
             ["100+", "REST APIs"],
-            ['10+', "Projects"],
+            ["10+", "Projects"],
           ].map(([n, l]) => (
             <div key={l} className="card p-4 text-center">
               <div className="grad text-2xl font-extrabold">{n}</div>

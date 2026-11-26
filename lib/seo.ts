@@ -37,11 +37,11 @@ export const SITE_KEYWORDS = [
   "Freelance Developer",
 ];
 
-/** Square avatar used in UI (512×512). */
-export const PROFILE_IMAGE = "/profile-photo-web.png";
+/** Square avatar used in UI (~288×288 WebP, retina-ready). */
+export const PROFILE_IMAGE = "/profile.webp";
 /** Full logo wordmark (landscape). */
-export const LOGO_IMAGE = "/itdinesh-logo.png";
-/** Open Graph / Twitter share image (1200×630). */
+export const LOGO_IMAGE = "/itdinesh-logo.webp";
+/** Open Graph / Twitter share image (1200×630 PNG for broad crawler support). */
 export const OG_IMAGE = "/og-image.png";
 
 export function pageMetadata({

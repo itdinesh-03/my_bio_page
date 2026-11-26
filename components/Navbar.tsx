@@ -52,12 +52,13 @@ export default function Navbar() {
           aria-label="Dinesh Bamaniya home"
         >
           <Image
-            src="/icon-192.png"
+            src="/nav-icon.webp"
             alt=""
-            width={28}
-            height={28}
+            width={56}
+            height={56}
+            sizes="28px"
+            unoptimized
             className="h-7 w-7 rounded-md"
-            priority
           />
           <span className="hidden sm:inline">
             DB<span className="grad">.</span>

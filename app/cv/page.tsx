@@ -27,14 +27,17 @@ export default function CV() {
   return (
     <main className="relative">
       <header className="relative">
-        <div className="glow" />
+        <div className="glow" aria-hidden="true" />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:text-left">
           <Image
             src={PROFILE_IMAGE}
-            alt="Dinesh Bamaniya"
-            width={112}
-            height={112}
-            priority
+            alt="Dinesh Bamaniya, Full Stack Developer"
+            width={224}
+            height={224}
+            sizes="(max-width: 640px) 96px, 112px"
+            unoptimized
+            preload
+            fetchPriority="high"
             className="h-24 w-24 shrink-0 rounded-full object-cover ring-4 sm:h-28 sm:w-28"
             style={{ ["--tw-ring-color" as string]: "var(--accent)" }}
           />

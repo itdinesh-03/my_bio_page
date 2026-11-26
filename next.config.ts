@@ -37,11 +37,32 @@ const nextConfig: NextConfig = {
     "192.168.1.149",
     "192.168.1.145",
   ],
+  // Prefer AVIF/WebP; longer image cache for static profile assets
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2678400,
+    // Avatar / nav icons are small; avoid generating huge srcset widths
+    imageSizes: [32, 48, 64, 96, 128, 160, 256, 288, 384],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
+  // Tailwind CSS is compact — inline it to cut render-blocking CSS on first visit
+  experimental: {
+    inlineCss: true,
+  },
   async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
     ];
   },

@@ -22,6 +22,9 @@ const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  // Only weights used on the site — smaller font payload
+  weight: ["400", "500", "600", "700", "800"],
+  preload: true,
 });
 
 const siteUrl = getSiteUrl();
@@ -95,6 +98,7 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
     { media: "(prefers-color-scheme: dark)", color: "#0b0b10" },
   ],
+  colorScheme: "light dark",
 };
 
 const themeScript = `try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}`;
@@ -105,7 +109,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={personJsonLd(siteUrl)} />
-        <link rel="preload" as="image" href={PROFILE_IMAGE} />
+        {/* Preload the optimized WebP avatar used as LCP on home/CV */}
+        <link
+          rel="preload"
+          as="image"
+          href={PROFILE_IMAGE}
+          type="image/webp"
+          fetchPriority="high"
+        />
       </head>
       <body>
         <a href="#main" className="skip-link">
