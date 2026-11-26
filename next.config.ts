@@ -51,6 +51,21 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
   },
+  // Canonical home URL — auditors flag /index.html and /index.php as duplicates
+  async redirects() {
+    return [
+      {
+        source: "/index.html",
+        destination: "/",
+        statusCode: 301,
+      },
+      {
+        source: "/index.php",
+        destination: "/",
+        statusCode: 301,
+      },
+    ];
+  },
   async headers() {
     return [
       {

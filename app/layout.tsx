@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import RevealObserver from "@/components/RevealObserver";
 import JsonLd from "@/components/JsonLd";
 import DeferredVitals from "@/components/DeferredVitals";
+import ThemeScript from "@/components/ThemeScript";
 import { GITHUB, LINKEDIN } from "@/lib/data";
 import {
   getSiteUrl,
@@ -106,13 +107,10 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-const themeScript = `try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}`;
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={sans.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={personJsonLd(siteUrl)} />
         {/* Fonts are self-hosted via next/font — preconnect analytics hosts only. */}
         <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
@@ -137,6 +135,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        <ThemeScript />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

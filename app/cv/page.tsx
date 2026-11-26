@@ -31,7 +31,6 @@ export default function CV() {
         <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:text-left">
           <Image
             src={PROFILE_IMAGE}
-            loading="lazy"
             alt="Dinesh Bamaniya, Full Stack Developer"
             width={224}
             height={224}
