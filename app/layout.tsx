@@ -7,6 +7,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import RevealObserver from "@/components/RevealObserver";
 import JsonLd from "@/components/JsonLd";
+import { GITHUB, LINKEDIN } from "@/lib/data";
 import {
   getSiteUrl,
   OG_IMAGE,
@@ -126,10 +127,40 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <RevealObserver />
         <div id="main">{children}</div>
         <footer
-          className="py-8 text-center text-xs"
-          style={{ color: "var(--muted)" }}
+          className="border-t px-4 py-8 text-center text-xs sm:px-5"
+          style={{ color: "var(--muted)", borderColor: "var(--line)" }}
         >
-          © {new Date().getFullYear()} Dinesh Bamaniya · Ahmedabad, India
+          <p>
+            © {new Date().getFullYear()} Dinesh Bamaniya · Full Stack &amp; AI
+            Developer · Ahmedabad, India
+          </p>
+          <nav
+            aria-label="Social profiles"
+            className="mt-3 flex flex-wrap items-center justify-center gap-4 text-sm font-semibold"
+          >
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer me"
+              style={{ color: "var(--accent)" }}
+            >
+              LinkedIn
+            </a>
+            <a
+              href={GITHUB}
+              target="_blank"
+              rel="noopener noreferrer me"
+              style={{ color: "var(--accent)" }}
+            >
+              GitHub
+            </a>
+            <a href="/cv" style={{ color: "var(--accent)" }}>
+              CV
+            </a>
+            <a href="/projects" style={{ color: "var(--accent)" }}>
+              Projects
+            </a>
+          </nav>
         </footer>
         <Analytics />
         <SpeedInsights />

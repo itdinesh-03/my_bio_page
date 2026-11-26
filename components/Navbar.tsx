@@ -53,7 +53,7 @@ export default function Navbar() {
         >
           <Image
             src="/nav-icon.webp"
-            alt=""
+            alt="Dinesh Bamaniya logo"
             width={56}
             height={56}
             sizes="28px"

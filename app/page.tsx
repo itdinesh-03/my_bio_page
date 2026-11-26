@@ -77,19 +77,19 @@ export default function Home() {
             <p className="mb-2 text-sm" style={{ color: "var(--muted)" }}>
               Hi, I&apos;m
             </p>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
               Dinesh <span className="grad">Bamaniya</span>
+              <span className="mt-2 block text-lg font-semibold tracking-normal sm:text-xl lg:text-2xl" style={{ color: "var(--fg)" }}>
+                Full Stack &amp; AI Developer
+              </span>
             </h1>
-            <p className="mt-2 text-lg font-medium sm:text-xl">
-              Full Stack &amp; AI Developer
-            </p>
             <p
               className="mt-4 max-w-xl text-sm sm:text-base"
               style={{ color: "var(--muted)" }}
             >
-              {years}+ years building scalable web apps with Angular, Node.js,
-              Python and microservices, now shipping AI agents and RAG products
-              too.
+              {years}+ years building scalable web apps with Angular, React,
+              Node.js, Python and microservices — now shipping AI agents, RAG,
+              and LangGraph products from Ahmedabad, India.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 sm:justify-start">
               <Link className="btn btn-primary" href="/#contact">
@@ -133,6 +133,34 @@ export default function Home() {
           ))}
         </div>
       </header>
+
+      <Section
+        title="About"
+        sub="Full Stack Developer focused on reliable product delivery and modern AI tooling."
+      >
+        <div className="space-y-3 text-sm sm:text-base" style={{ color: "var(--muted)" }}>
+          <p>
+            I am Dinesh Bamaniya, a Full Stack &amp; AI Developer based in
+            Ahmedabad, India. I design and ship production web applications with
+            Angular and React on the frontend, and Node.js, Express, FastAPI, and
+            microservices on the backend.
+          </p>
+          <p>
+            Recent work includes multi-vendor e-commerce platforms, payment
+            gateway integrations, queue-based image pipelines, and AI products
+            built with LangChain, LangGraph, RAG retrieval, and MCP tool-calling
+            agents. Browse the{" "}
+            <Link href="/cv" className="font-semibold underline" style={{ color: "var(--accent)" }}>
+              CV
+            </Link>{" "}
+            or{" "}
+            <Link href="/projects" className="font-semibold underline" style={{ color: "var(--accent)" }}>
+              project case studies
+            </Link>{" "}
+            for stack details and outcomes.
+          </p>
+        </div>
+      </Section>
 
       <Section title="What I do">
         <div className="grid gap-4 sm:grid-cols-3">

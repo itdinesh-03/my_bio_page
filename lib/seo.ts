@@ -19,8 +19,9 @@ export function getSiteUrl(): string {
 
 export const SITE_NAME = "Dinesh Bamaniya";
 export const SITE_TITLE_DEFAULT = "Dinesh Bamaniya — Full Stack & AI Developer";
+/** Keep ~70–160 chars for SERP snippets and SEO auditors. */
 export const SITE_DESCRIPTION =
-  "Full Stack Developer specializing in Angular, React, Node.js, Python, and AI agents. CV, projects, and freelance services. Based in Ahmedabad, India.";
+  "Full Stack & AI Developer in Ahmedabad — Angular, React, Node.js, Python, LangGraph. Hire for web apps, AI agents, RAG, and freelance projects.";
 
 export const SITE_KEYWORDS = [
   "Dinesh Bamaniya",

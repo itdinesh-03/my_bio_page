@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "This page does not exist. Return home or browse Dinesh Bamaniya’s CV and projects.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
