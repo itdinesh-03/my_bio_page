@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Error({
   reset,
 }: {
@@ -18,9 +20,9 @@ export default function Error({
         <button type="button" className="btn btn-primary" onClick={reset}>
           Try again
         </button>
-        <a className="btn btn-ghost" href="/">
+        <Link className="btn btn-ghost" href="/">
           Home
-        </a>
+        </Link>
       </div>
     </main>
   );

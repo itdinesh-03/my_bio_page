@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import RevealObserver from "@/components/RevealObserver";
 import JsonLd from "@/components/JsonLd";
+import DeferredVitals from "@/components/DeferredVitals";
 import { GITHUB, LINKEDIN } from "@/lib/data";
 import {
   getSiteUrl,
@@ -46,6 +45,10 @@ export const metadata: Metadata = {
   category: "technology",
   alternates: {
     canonical: "/",
+    languages: {
+      en: "/",
+      "x-default": "/",
+    },
   },
   openGraph: {
     type: "website",
@@ -111,6 +114,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <JsonLd data={personJsonLd(siteUrl)} />
+        {/* Fonts are self-hosted via next/font — preconnect analytics hosts only. */}
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+        <link
+          rel="preconnect"
+          href="https://va.vercel-scripts.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        <link
+          rel="preconnect"
+          href="https://vitals.vercel-insights.com"
+          crossOrigin="anonymous"
+        />
         {/* Preload the optimized WebP avatar used as LCP on home/CV */}
         <link
           rel="preload"
@@ -163,8 +179,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
           </nav>
         </footer>
-        <Analytics />
-        <SpeedInsights />
+        <DeferredVitals />
       </body>
     </html>
   );

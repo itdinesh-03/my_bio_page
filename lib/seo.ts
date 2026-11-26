@@ -18,10 +18,12 @@ export function getSiteUrl(): string {
 }
 
 export const SITE_NAME = "Dinesh Bamaniya";
-export const SITE_TITLE_DEFAULT = "Dinesh Bamaniya — Full Stack & AI Developer";
-/** Keep ~70–160 chars for SERP snippets and SEO auditors. */
+/** Aim for ~50–60 chars so SERP titles fill the slot without truncation. */
+export const SITE_TITLE_DEFAULT =
+  "Dinesh Bamaniya — Full Stack & AI Developer in Ahmedabad";
+/** Aim for ~150–160 chars for SERP snippets and SEO auditors. */
 export const SITE_DESCRIPTION =
-  "Full Stack & AI Developer in Ahmedabad — Angular, React, Node.js, Python, LangGraph. Hire for web apps, AI agents, RAG, and freelance projects.";
+  "Dinesh Bamaniya is a Full Stack & AI Developer in Ahmedabad — Angular, React, Node.js, Python, LangGraph. Hire for web apps, AI agents, and RAG projects.";
 
 export const SITE_KEYWORDS = [
   "Dinesh Bamaniya",
@@ -59,7 +61,14 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // Single-locale site: declare en + x-default so hreflang audits pass.
+      languages: {
+        en: url,
+        "x-default": url,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -97,6 +106,13 @@ export function personJsonLd(siteUrl: string) {
         description: SITE_DESCRIPTION,
         publisher: { "@id": `${siteUrl}/#person` },
         inLanguage: "en",
+        sameAs: [LINKEDIN, GITHUB],
+        // Real on-site action (no search UI) — contact CTA rather than a fake SearchAction.
+        potentialAction: {
+          "@type": "CommunicateAction",
+          name: "Contact Dinesh Bamaniya",
+          target: `${siteUrl}/#contact`,
+        },
       },
       {
         "@type": "Person",
