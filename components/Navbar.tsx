@@ -29,6 +29,19 @@ export default function Navbar() {
   const path = usePathname();
   const dark = useSyncExternalStore(subscribeTheme, getThemeIsDark, () => true);
 
+  const printCv = () => {
+    const originalTitle = document.title;
+    document.title = "CV-dinesh-bamaniya";
+    window.addEventListener(
+      "afterprint",
+      () => {
+        document.title = originalTitle;
+      },
+      { once: true },
+    );
+    window.print();
+  };
+
   const toggle = () => {
     const next = dark ? "light" : "dark";
     document.documentElement.dataset.theme = next;
@@ -103,7 +116,7 @@ export default function Navbar() {
           {path.startsWith("/cv") ? (
             <button
               type="button"
-              onClick={() => window.print()}
+              onClick={printCv}
               className="btn btn-primary !px-2.5 !py-1.5 text-xs sm:!px-3 sm:text-sm"
             >
               PDF

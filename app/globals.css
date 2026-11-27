@@ -192,8 +192,13 @@ html[data-reveal="ready"] .reveal.in,
     background: #fff !important;
     color: #111 !important;
     font-size: 12px;
-    /* content inset replaces @page margin so headers/footers stay gone */
-    padding: 5mm !important;
+    padding: 0 !important;
+  }
+  body {
+    /* Cloned padding insets every printed page without browser headers/footers. */
+    padding: 8mm 5mm !important;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
   .no-print,
   nav {
@@ -226,9 +231,9 @@ html[data-reveal="ready"] .reveal.in,
     padding-top: 0.9rem !important;
     padding-bottom: 0.4rem !important;
   }
-  header > div:first-of-type {
-    padding-top: 0.5rem !important;
-    padding-bottom: 1rem !important;
+  header > .cv-header-content {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.75rem !important;
   }
   h1 {
     font-size: 2.4rem !important;

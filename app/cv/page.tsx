@@ -31,7 +31,7 @@ export default function CV() {
     <main className="relative">
       <header className="relative">
         <div className="glow" aria-hidden="true" />
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:text-left">
+        <div className="cv-header-content relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 pb-6 pt-10 text-center sm:px-5 sm:pt-12 sm:flex-row sm:text-left print:flex-row print:gap-4 print:text-left">
           <Image
             src={PROFILE_IMAGE}
             alt="Dinesh Bamaniya, Full Stack Developer"
@@ -52,7 +52,7 @@ export default function CV() {
               Full Stack Developer
             </p>
             <div
-              className="mt-3 flex flex-col items-center gap-1 text-sm sm:items-start"
+              className="mt-3 flex flex-col items-center gap-1 text-sm sm:items-start print:mt-2 print:grid print:grid-cols-2 print:gap-x-5 print:gap-y-0.5"
               style={{ color: "var(--muted)" }}
             >
               <p>📍 Ahmedabad, India</p>
